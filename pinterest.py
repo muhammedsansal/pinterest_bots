@@ -150,26 +150,24 @@ class Run(object):
 
         if self._follow:
             follow = pinterest.follow_user(self._follow)
-            print "\nAttempting to follow %s..." % (self._follow)
-            print follow.content
+            print ("\nAttempting to follow %s..." % (self._follow))
+            print (follow.content)
 
         if self._get_followers:
             followers = pinterest.get_user_follower(self._get_followers)
-            print "\n%s has the following followers ..." % (self._get_followers)
-            print followers.content
+            print ("\n%s has the following followers ..." % (self._get_followers))
+            print (followers.content)
 
         if self._un_follow:
             unfollow = pinterest.unfollow_user(self._un_follow)
-            print "\nAttempting to unfollow %s..." % (self._un_follow)
-            print unfollow.content
+            print ("\nAttempting to unfollow %s..." % (self._un_follow))
+            print (unfollow.content)
 
         if self._follow_board:
             if self._user is not None:
-                follow_board = pinterest.follow_board(self._user,
-                                                      self._follow_board)
-                print "\n Attempting to follow user %s on board: %s" % (
-                    self._user, self._follow_board)
-                print follow_board.content
+                follow_board = pinterest.follow_board(self._user, self._follow_board)
+                print ("\n Attempting to follow user %s on board: %s" % (self._user, self._follow_board))
+                print (follow_board.content)
             else:
                 raise BotError("Error attempting to follow a board while "
                                "board owner is not specified")
@@ -177,14 +175,13 @@ class Run(object):
         if self._get_other_user_pins:
             other_people_follower = pinterest.get_other_user_pins(
                 str(self._get_other_user_pins))
-            print "/nAttempting to fetch follower information for %s" % (
-                self._get_other_user_pins)
-            print other_people_follower.content
+            print ("/nAttempting to fetch follower information for %s" % (self._get_other_user_pins))
+            print (other_people_follower.content)
 
         if self._get_pin:
             pin = pinterest.get_pin(self._get_pin)
-            print "/nAttempting to get pin: %s" % (self._get_pin)
-            print pin.content
+            print ("/nAttempting to get pin: %s" % (self._get_pin))
+            print (pin.content)
 
         if self._post_pin:
             if not (self._user and self._board_name and self._note):
@@ -194,7 +191,7 @@ class Run(object):
             else:
                 pin = pinterest.post_pin(self._user, self._board_name,
                                          self._note, image_url=self._post_pin)
-                print pin.content
+                print (pin.content)
 
 
 def main():
